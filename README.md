@@ -74,3 +74,20 @@ Depois, para executar o projeto em modo desenvolvimento:
 ng serve
 ```
 Então, acesse [http://localhost:4200/](url) no seu navegador.
+
+
+
+
+# backend fake
+## install
+    npm install -g json-server@0.17.4
+## Acessar
+    cd /angular-srv-http-organo/backend
+### criar package.json dentro do backend
+    [cmd] npm init -y
+
+#### fake
+    "start": "json-server --watch db.json --port 3000"
+
+##### dentro da pasta backend em outro terminal
+    npm start
