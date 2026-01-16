@@ -29,8 +29,13 @@ import { LivroService } from '../../services/livro.service';
   styleUrl: './formulario.component.css'
 })
 export class FormularioComponent implements OnInit {
+  //filho=>pai
+  submitForm = output<Livro>();
+
   livroFormulario!: FormGroup;
   generos: GeneroLiterario[] = [];
+
+  
 
   constructor(
     private formBuilder: FormBuilder,
@@ -52,4 +57,15 @@ export class FormularioComponent implements OnInit {
       imagem: ['']
     })
   };
+
+  
+  emitirLivroAtualizado() {
+    const livroAtualizado: Livro ={
+      ...this.livroFormulario.value,
+      genero : this.livroService.generos.find(x=> x.id === this.livroFormulario.value.genero)
+    };
+
+    //enviar para quem quer ouvir!
+    this.submitForm.emit(livroAtualizado);
+  }
 }

@@ -186,6 +186,17 @@
         "value": "Romance"
       },
       "favorito": false
+    },
+    {
+      "id": "XrczLSP",
+      "titulo": "Xpto",
+      "autoria": "Fulano",
+      "favorito": true,
+      "genero": {
+        "id": "tecnicos",
+        "value": "Técnicos"
+      },
+      "imagem": "https://th.bing.com/th/id/OIP.fZobCNrPG2R11ugaHd7QOQHaEK?w=316&h=180&c=7&r=0&o=7&pid=1.7&rm=3"
     }
   ]
 }
