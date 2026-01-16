@@ -55,4 +55,8 @@ export class LivroService {
     return this.httpClient.patch<Livro>(`${this.API_URL}/${livro.id}`, {favorito: livro.favorito});
   }
 
+  atualizarLivro(livro: Livro): Observable<Livro>{
+    return this.httpClient.put<Livro>(`${this.API_URL}/${livro.id}`, livro);
+  }
+
 }
