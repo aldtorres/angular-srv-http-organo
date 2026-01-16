@@ -25,6 +25,7 @@ import { LivroService } from '../../services/livro.service';
   styleUrl: './lista-livros.component.css'
 })
 export class ListaLivrosComponent implements OnInit {
+
   generosComLivros: { genero: GeneroLiterario; livros: Livro[] }[] = [];
 
   livros: Livro[] = [];
@@ -46,5 +47,21 @@ export class ListaLivrosComponent implements OnInit {
     
   }
 
-  
+  remover_livro(livroId: string) {
+    this.livroService.excluirLivro(livroId).subscribe(()=>{
+      this.deletarLivroDaLista(livroId);
+    });
+  }
+
+  deletarLivroDaLista(livroId:string){
+    this.generosComLivros = 
+        this.generosComLivros
+                .map(
+                  ({genero, livros}) => 
+                    ({
+                      genero,
+                      livros: livros.filter(l => l.id != livroId )
+                    })
+                )
+  }
 }

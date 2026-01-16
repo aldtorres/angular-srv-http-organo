@@ -13,7 +13,7 @@
   }
   <div class="livros-genero">
     @for(livro of item.livros; track livro) {
-      <app-livro [livro]="livro" />
+      <app-livro [livro]="livro" (handleExcluirLivro)="remover_livro($event)" />
     }
   </div>
 </section>

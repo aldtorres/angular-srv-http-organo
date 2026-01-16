@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, input } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 
 import { Livro } from './livro';
 import { BotaoComponent } from '../botao/botao.component';
@@ -16,6 +16,8 @@ import { LivroService } from '../../services/livro.service';
 })
 export class LivroComponent {
 
+  handleExcluirLivro = output<string>()
+
   livro = input.required<Livro>();
 
   constructor(private livroService:LivroService){}
@@ -30,6 +32,12 @@ export class LivroComponent {
     this.livroService.atualizarFavorito(livroAtualizado).subscribe(()=>{
       this.livro().favorito = livroAtualizado.favorito
     });
+
+
+  }
+
+  excluir_livro() {
+    this.handleExcluirLivro.emit(this.livro().id);
   }
 
 }
